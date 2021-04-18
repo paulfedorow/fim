@@ -11,6 +11,7 @@ func Mine(txs []Itemset, minSupport int) []Itemset {
 	var itemPairCount = make(map[int]map[int]int)
 	for _, tx := range txs {
 		for k, item1 := range tx {
+			itemCount[item1] += 1
 			for _, item2 := range tx[k+1:] {
 				item1, item2 = minmax(item1, item2)
 				if _, ok := itemPairCount[item1]; !ok {
@@ -18,7 +19,6 @@ func Mine(txs []Itemset, minSupport int) []Itemset {
 				}
 				itemPairCount[item1][item2] += 1
 			}
-			itemCount[item1] += 1
 		}
 		sort.Ints(tx)
 	}
