@@ -1,6 +1,9 @@
 package apriori
 
-import "sort"
+import (
+	"fim/ints"
+	"sort"
+)
 
 type Itemset []int
 
@@ -13,7 +16,7 @@ func Mine(txs []Itemset, minSupport int) []Itemset {
 		for k, item1 := range tx {
 			itemCount[item1] += 1
 			for _, item2 := range tx[k+1:] {
-				item1, item2 = minmax(item1, item2)
+				item1, item2 = ints.MinMax(item1, item2)
 				if _, ok := itemPairCount[item1]; !ok {
 					itemPairCount[item1] = make(map[int]int)
 				}
@@ -38,7 +41,7 @@ func Mine(txs []Itemset, minSupport int) []Itemset {
 	for item1, counts := range itemPairCount {
 		for item2, count := range counts {
 			if count >= minSupport {
-				item1, item2 = minmax(item1, item2)
+				item1, item2 = ints.MinMax(item1, item2)
 				allFreqItemsets = append(allFreqItemsets, Itemset{item1, item2})
 				prevFreqItemsets = append(prevFreqItemsets, Itemset{item1, item2})
 			}
@@ -184,13 +187,4 @@ func (t *trie) mine(minSupport int) []Itemset {
 	}
 
 	return freqItemsets
-}
-
-// minmax returns the smaller integer first and the larger integer second.
-func minmax(a int, b int) (int, int) {
-	if a < b {
-		return a, b
-	} else {
-		return b, a
-	}
 }

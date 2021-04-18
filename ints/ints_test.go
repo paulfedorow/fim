@@ -69,3 +69,14 @@ func TestUnion(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestMinMax(t *testing.T) {
+	var a, b = MinMax(1, 2)
+	if a != 1 || b != 2 {
+		t.Fail()
+	}
+	a, b = MinMax(2, 1)
+	if a != 1 || b != 2 {
+		t.Fail()
+	}
+}

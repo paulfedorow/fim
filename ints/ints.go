@@ -77,3 +77,12 @@ func Union(ints1 []int, ints2 []int) []int {
 	}
 	return result
 }
+
+// MinMax returns the smaller integer first and the larger integer second.
+func MinMax(a int, b int) (int, int) {
+	if a < b {
+		return a, b
+	} else {
+		return b, a
+	}
+}
