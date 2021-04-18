@@ -27,3 +27,53 @@ func Equals(ints1 []int, ints2 []int) bool {
 		return false
 	}
 }
+
+// Intersection return the intersection of ints1 und ints2. Both arguments are expected to be sorted.
+func Intersection(ints1 []int, ints2 []int) []int {
+	var result []int
+	var i = 0
+	var j = 0
+	for i < len(ints1) && j < len(ints2) {
+		switch {
+		case ints1[i] < ints2[j]:
+			i += 1
+		case ints1[i] > ints2[j]:
+			j += 1
+		case ints1[i] == ints2[j]:
+			result = append(result, ints1[i])
+			i += 1
+			j += 1
+		}
+	}
+	return result
+}
+
+// Union return the union of ints1 und ints2. Both arguments are expected to be sorted.
+func Union(ints1 []int, ints2 []int) []int {
+	var result []int
+	var i = 0
+	var j = 0
+	for i < len(ints1) && j < len(ints2) {
+		switch {
+		case ints1[i] < ints2[j]:
+			result = append(result, ints1[i])
+			i += 1
+		case ints1[i] > ints2[j]:
+			result = append(result, ints2[i])
+			j += 1
+		case ints1[i] == ints2[j]:
+			result = append(result, ints1[i])
+			i += 1
+			j += 1
+		}
+	}
+	for i < len(ints1) {
+		result = append(result, ints1[i])
+		i += 1
+	}
+	for j < len(ints2) {
+		result = append(result, ints2[j])
+		j += 1
+	}
+	return result
+}

@@ -37,3 +37,35 @@ func TestLess(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestIntersection(t *testing.T) {
+	if len(Intersection([]int{}, []int{1})) > 0 {
+		t.Fail()
+	}
+	if len(Intersection([]int{1}, []int{})) > 0 {
+		t.Fail()
+	}
+	if len(Intersection([]int{1}, []int{1, 2})) != 1 || Intersection([]int{1}, []int{1, 2})[0] != 1 {
+		t.Fail()
+	}
+	if len(Intersection([]int{1, 2}, []int{1})) != 1 || Intersection([]int{1}, []int{1, 2})[0] != 1 {
+		t.Fail()
+	}
+}
+
+func TestUnion(t *testing.T) {
+	if len(Union([]int{}, []int{1})) != 1 {
+		t.Fail()
+	}
+	if len(Union([]int{1}, []int{})) != 1 {
+		t.Fail()
+	}
+	var ints = Union([]int{1, 2}, []int{1})
+	if len(ints) != 2 || ints[0] != 1 || ints[1] != 2 {
+		t.Fail()
+	}
+	ints = Union([]int{1}, []int{1, 2})
+	if len(ints) != 2 || ints[0] != 1 || ints[1] != 2 {
+		t.Fail()
+	}
+}
