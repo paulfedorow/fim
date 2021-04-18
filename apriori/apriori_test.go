@@ -28,7 +28,7 @@ func TestApriori(t *testing.T) {
 		{1, 2, 5},
 		{1, 2, 3},
 		{1, 2, 3, 4},
-		{2, 4},
+		{3, 4},
 	}
 	var expectedFreqItemsets = []Itemset {
 		{1}, {2}, {3}, {4},
