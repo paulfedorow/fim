@@ -1,4 +1,4 @@
-package apriori
+package eclat
 
 import (
 	"fim/ints"

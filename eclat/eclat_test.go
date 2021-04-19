@@ -1,4 +1,4 @@
-package apriori
+package eclat
 
 import (
 	"fim/ints"
@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestEclat(t *testing.T) {
+func TestMine(t *testing.T) {
 	var txs = []Itemset {
 		{1, 3},
 		{1, 2, 5},
