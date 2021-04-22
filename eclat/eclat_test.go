@@ -20,6 +20,9 @@ func TestMine(t *testing.T) {
 		{1, 2, 3},
 	}
 	var freqItemsets = Mine(txs, 2)
+	for _, itemset := range freqItemsets {
+		sort.Ints(itemset)
+	}
 	sort.Slice(freqItemsets, func(i, j int) bool { return ints.Less(freqItemsets[i], freqItemsets[j]) })
 	if len(freqItemsets) == len(expectedFreqItemsets) {
 		for i, expected := range expectedFreqItemsets {

@@ -1,4 +1,4 @@
-package apriori
+package fpgrowth
 
 import (
 	"fim/ints"
