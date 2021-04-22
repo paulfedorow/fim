@@ -1,13 +1,11 @@
-package fpgrowth
+package mine
 
 import (
 	"sort"
 )
 
-type Itemset []int
-
-// Mine determines the frequent itemsets for the given transactions.
-func Mine(txs []Itemset, minSupport int) []Itemset {
+// MineFPGrowth determines the frequent itemsets for the given transactions.
+func MineFPGrowth(txs []Itemset, minSupport int) []Itemset {
 	// Count items.
 	var itemCount = make(map[int]int)
 	for _, tx := range txs {
@@ -93,7 +91,7 @@ func (t *fpTree) insert(itemset Itemset, count int) {
 // mine extracts the frequent itemsets out of the FP-tree.
 func (t *fpTree) mine(minSupport int, freqItemsets *[]Itemset) {
 	type stackEntry struct {
-		fpTree *fpTree
+		fpTree  *fpTree
 		itemset Itemset
 	}
 	var stack = []stackEntry{{fpTree: t, itemset: nil}}
@@ -128,7 +126,7 @@ func (t *fpTree) conditionalTree(item int, minSupport int) *fpTree {
 	// Extract all prefixes of nodes that contain the conditional item.
 	type prefix struct {
 		itemset Itemset
-		count int
+		count   int
 	}
 	var prefixes []prefix
 	var itemCount = make(map[int]int)

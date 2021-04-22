@@ -1,14 +1,12 @@
-package eclat
+package mine
 
 import (
 	"fim/ints"
 	"sort"
 )
 
-type Itemset []int
-
-// Mine determines the frequent itemsets for the given transactions.
-func Mine(txs []Itemset, minSupport int) []Itemset {
+// MineEclat determines the frequent itemsets for the given transactions.
+func MineEclat(txs []Itemset, minSupport int) []Itemset {
 	// Create vertical representation of the transactions and count item pairs.
 	var itemTidsets = make(map[int][]int)
 	var itemPairCount = make(map[int]map[int]int)
@@ -69,7 +67,7 @@ func Mine(txs []Itemset, minSupport int) []Itemset {
 
 type atom struct {
 	itemset Itemset
-	tidset []int
+	tidset  []int
 }
 
 // eclat performs the eclat algorithm on the given atoms and collects any frequent itemsets into freqItemsets.

@@ -1,14 +1,12 @@
-package apriori
+package mine
 
 import (
 	"fim/ints"
 	"sort"
 )
 
-type Itemset []int
-
-// Mine determines the frequent itemsets for the given transactions.
-func Mine(txs []Itemset, minSupport int) []Itemset {
+// MineApriori determines the frequent itemsets for the given transactions.
+func MineApriori(txs []Itemset, minSupport int) []Itemset {
 	// Count items and item pairs.
 	var itemCount = make(map[int]int)
 	var itemPairCount = make(map[int]map[int]int)
@@ -158,7 +156,7 @@ func (t *trie) count(tx Itemset) {
 // mine determines the frequent itemsets that are contained in the trie.
 func (t *trie) mine(minSupport int) []Itemset {
 	type stackEntry struct {
-		trie *trie
+		trie    *trie
 		itemset Itemset
 	}
 
