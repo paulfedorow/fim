@@ -9,9 +9,8 @@ func Less(ints1 []int, ints2 []int) bool {
 			}
 		}
 		return false
-	} else {
-		return len(ints1) < len(ints2)
 	}
+	return len(ints1) < len(ints2)
 }
 
 // Equals returns true if the contents of ints1 und ints2 are identical, false otherwise.
@@ -23,9 +22,8 @@ func Equals(ints1 []int, ints2 []int) bool {
 			}
 		}
 		return true
-	} else {
-		return false
 	}
+	return false
 }
 
 // Intersection return the intersection of ints1 und ints2. Both arguments are expected to be sorted.
@@ -82,7 +80,6 @@ func Union(ints1 []int, ints2 []int) []int {
 func MinMax(a int, b int) (int, int) {
 	if a < b {
 		return a, b
-	} else {
-		return b, a
 	}
+	return b, a
 }

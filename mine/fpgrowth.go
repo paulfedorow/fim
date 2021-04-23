@@ -34,9 +34,8 @@ func FPGrowth(txs []Itemset, minSupport int) []Itemset {
 		sort.Slice(itemset, func(i, j int) bool {
 			if freqItems[itemset[i]] == freqItems[itemset[j]] {
 				return itemset[i] < itemset[j]
-			} else {
-				return freqItems[itemset[i]] > freqItems[itemset[j]]
 			}
+			return freqItems[itemset[i]] > freqItems[itemset[j]]
 		})
 		fpTree.insert(itemset, 1)
 	}
