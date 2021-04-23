@@ -1,5 +1,9 @@
 # fim
 
+[![Build Status](https://img.shields.io/github/workflow/status/paulfedorow/fim/Go)](https://github.com/paulfedorow/fim/actions/workflows/go.yml)
+[![Go Report Card](https://goreportcard.com/badge/paulfedorow/fim)](https://goreportcard.com/report/paulfedorow/fim)
+[![License](https://img.shields.io/github/license/paulfedorow/fim)](https://github.com/paulfedorow/fim/blob/main/LICENSE)
+
 fim is a collection of some popular [frequent itemset mining](https://en.wikipedia.org/wiki/Frequent_pattern_discovery)
 algorithms implemented in Go.
 
