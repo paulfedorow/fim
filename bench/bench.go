@@ -37,9 +37,9 @@ func main() {
 
 	// Measure the algorithm runtime on the given dataset with decreasing minimal supports.
 	var algorithms = []algorithm{
-		{name: "apriori", mine: mine.MineApriori},
-		{name: "eclat", mine: mine.MineEclat},
-		{name: "fpgrowth", mine: mine.MineFPGrowth},
+		{name: "apriori", mine: mine.Apriori},
+		{name: "eclat", mine: mine.Eclat},
+		{name: "fpgrowth", mine: mine.FPGrowth},
 	}
 	var minSupport = *startSupport
 	var stop = false

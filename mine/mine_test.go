@@ -6,16 +6,16 @@ import (
 	"testing"
 )
 
-func TestMineApriori(t *testing.T) {
-	testMine(t, MineApriori)
+func TestApriori(t *testing.T) {
+	testMine(t, Apriori)
 }
 
-func TestMineEclat(t *testing.T) {
-	testMine(t, MineEclat)
+func TestEclat(t *testing.T) {
+	testMine(t, Eclat)
 }
 
-func TestMineFPGrowth(t *testing.T) {
-	testMine(t, MineFPGrowth)
+func TestFPGrowth(t *testing.T) {
+	testMine(t, FPGrowth)
 }
 
 func testMine(t *testing.T, mineFunc func([]Itemset, int) []Itemset) {

@@ -5,8 +5,8 @@ import (
 	"sort"
 )
 
-// MineEclat determines the frequent itemsets for the given transactions.
-func MineEclat(txs []Itemset, minSupport int) []Itemset {
+// Eclat determines the frequent itemsets for the given transactions.
+func Eclat(txs []Itemset, minSupport int) []Itemset {
 	// Create vertical representation of the transactions and count item pairs.
 	var itemTidsets = make(map[int][]int)
 	var itemPairCount = make(map[int]map[int]int)

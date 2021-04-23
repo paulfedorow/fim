@@ -4,8 +4,8 @@ import (
 	"sort"
 )
 
-// MineFPGrowth determines the frequent itemsets for the given transactions.
-func MineFPGrowth(txs []Itemset, minSupport int) []Itemset {
+// FPGrowth determines the frequent itemsets for the given transactions.
+func FPGrowth(txs []Itemset, minSupport int) []Itemset {
 	// Count items.
 	var itemCount = make(map[int]int)
 	for _, tx := range txs {
