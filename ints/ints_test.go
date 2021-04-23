@@ -68,6 +68,10 @@ func TestUnion(t *testing.T) {
 	if len(ints) != 2 || ints[0] != 1 || ints[1] != 2 {
 		t.Fail()
 	}
+	ints = Union([]int{1, 3}, []int{2, 3})
+	if len(ints) != 3 || ints[0] != 1 || ints[1] != 2 || ints[2] != 3 {
+		t.Fail()
+	}
 }
 
 func TestMinMax(t *testing.T) {

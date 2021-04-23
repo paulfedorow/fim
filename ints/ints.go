@@ -59,7 +59,7 @@ func Union(ints1 []int, ints2 []int) []int {
 			result = append(result, ints1[i])
 			i += 1
 		case ints1[i] > ints2[j]:
-			result = append(result, ints2[i])
+			result = append(result, ints2[j])
 			j += 1
 		case ints1[i] == ints2[j]:
 			result = append(result, ints1[i])
