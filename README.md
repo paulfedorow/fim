@@ -41,6 +41,17 @@ in `datasets/retail.dat`:
 
     build/fim -a fpgrowth -i datasets/retail.dat -s 0.01 
 
+## Dataset format
+
+fims dataset file format is as follows:
+
+    File = {Transaction}
+    Transaction = Item {" " Item} "\n"
+    Item = {"0" ... "9"}
+
+Each line in the file is a transaction. A line is expected to be a series of integers separated by a single space. Each
+integer is an item of the corresponding transaction.
+
 ## Performance
 
 To determine which algorithm is the most efficient, the runtime of each algorithm was measured with different datasets
