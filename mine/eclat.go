@@ -38,7 +38,7 @@ func Eclat(txs []Itemset, minSupport int) []Itemset {
 	}
 
 	// Sort the atoms by the order of increasing tidset size. This reduces the number of generated atoms.
-	sort.Slice(atoms, func (i, j int) bool { return len(atoms[i].tidset) < len(atoms[j].tidset) })
+	sort.Slice(atoms, func(i, j int) bool { return len(atoms[i].tidset) < len(atoms[j].tidset) })
 
 	// The first level of the eclat function is inlined here, so that we can use the item pairs to accelerate the
 	// support checking.

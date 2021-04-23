@@ -69,7 +69,7 @@ func candidates(prevFreqItemsets []Itemset) *trie {
 	for k, itemset1 := range prevFreqItemsets {
 		for _, itemset2 := range prevFreqItemsets[k+1:] {
 			var samePrefix = true
-			for i, _ := range itemset1[:len(itemset1)-1] {
+			for i := range itemset1[:len(itemset1)-1] {
 				if itemset1[i] != itemset2[i] {
 					samePrefix = false
 					break

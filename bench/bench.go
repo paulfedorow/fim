@@ -44,7 +44,7 @@ func main() {
 	var minSupport = *startSupport
 	var stop = false
 	fmt.Printf("minSupport,apriori,eclat,fpgrowth\n")
-	for !stop && minSupport >= (*endSupport - math.Pow(0.1, 10)) {
+	for !stop && minSupport >= (*endSupport-math.Pow(0.1, 10)) {
 		stop = true
 		fmt.Printf("%f", minSupport)
 		for i, algorithm := range algorithms {
@@ -55,7 +55,7 @@ func main() {
 			}
 			runtime.GC() // force full GC to level the playing field
 			var start = time.Now()
-			_ = algorithm.mine(txs, int(math.Ceil(minSupport * float64(len(txs)))))
+			_ = algorithm.mine(txs, int(math.Ceil(minSupport*float64(len(txs)))))
 			var duration = time.Since(start)
 			algorithms[i].lastDuration = duration
 			stop = false

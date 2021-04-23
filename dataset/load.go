@@ -34,4 +34,3 @@ func Load(input *os.File) []mine.Itemset {
 	}
 	return txs
 }
-

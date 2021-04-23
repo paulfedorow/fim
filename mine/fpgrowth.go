@@ -149,7 +149,7 @@ func (t *fpTree) conditionalTree(item int, minSupport int) *fpTree {
 	var fpTree = fpTreeNew()
 	for _, prefix := range prefixes {
 		var itemset Itemset
-		for i, _ := range prefix.itemset {
+		for i := range prefix.itemset {
 			var item = prefix.itemset[len(prefix.itemset)-1-i] // the items in prefix were collected in reverse order
 			if itemCount[item] >= minSupport {
 				itemset = append(itemset, item)
