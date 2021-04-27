@@ -142,8 +142,8 @@ func (t *trie) count(tx Itemset) {
 	// that are contained in txItems.
 	var stack = []*trie{t}
 	for len(stack) > 0 {
-		var trie = stack[0]
-		stack = stack[1:]
+		var trie = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
 		trie.frequency += 1
 		for item, childTrie := range trie.children {
 			if _, ok := txItems[item]; ok {
@@ -165,9 +165,9 @@ func (t *trie) mine(minSupport int) []Itemset {
 	// Determine the frequent itemsets by finding all candidates that have frequencies which exceed minSupport.
 	var stack = []stackEntry{{trie: t, itemset: nil}}
 	for len(stack) > 0 {
-		var trie = stack[0].trie
-		var itemset = stack[0].itemset
-		stack = stack[1:]
+		var trie = stack[len(stack)-1].trie
+		var itemset = stack[len(stack)-1].itemset
+		stack = stack[:len(stack)-1]
 		if trie.empty() {
 			// Leaf node reached. Collect the frequent itemset.
 			freqItemsets = append(freqItemsets, itemset)

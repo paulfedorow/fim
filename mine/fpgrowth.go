@@ -95,9 +95,9 @@ func (t *fpTree) mine(minSupport int, freqItemsets *[]Itemset) {
 	}
 	var stack = []stackEntry{{fpTree: t, itemset: nil}}
 	for len(stack) > 0 {
-		var fpTree = stack[0].fpTree
-		var itemset = stack[0].itemset
-		stack = stack[1:]
+		var fpTree = stack[len(stack)-1].fpTree
+		var itemset = stack[len(stack)-1].itemset
+		stack = stack[:len(stack)-1]
 		for item, head := range fpTree.itemHead {
 			// Determine the count of item in the fpTree.
 			var count = 0
